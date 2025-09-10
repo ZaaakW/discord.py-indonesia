@@ -31,7 +31,7 @@ Sebelum meminta dukungan, perlu diketahui bahwa templat ini mengharuskan kamu me
 
 Jika kamu memerlukan bantuan, jangan ragu untuk mengajukan masalah [di sini](https://discord.gg/NntdTNhFKh), tetapi jangan lupa untuk membaca FAQ sebelumnya.
 
-## Deployment  
+## Gimana cara downloadnya?
 
 1. Klone dengan menggunakan git:
 
@@ -48,7 +48,7 @@ Jika kamu memerlukan bantuan, jangan ragu untuk mengajukan masalah [di sini](htt
 
 3. Konfigurasi environment:
 
-    edit file di `env.example` dan ubah nama jadi `.env`
+    edit file di `.env.example` dan ubah nama jadi `.env`
     dan masukan api token discord bot dan database:
     ```
     DISCORD_TOKEN=YOUR_TOKEN_DISCORD_BOT
@@ -58,6 +58,8 @@ Jika kamu memerlukan bantuan, jangan ragu untuk mengajukan masalah [di sini](htt
     DATABASE_PASSWORD=YOUR_PASSWORD
     DATABASE_NAME=YOUR_DATABASE 
     ```
+
+    > **Note:** cara mendapatkan token bot [disini](https://discord.com/developers/applications) dan untuk database kamu bisa dengan menggunakan [supabase](https://supabase.com) atau dengan postgres lokal
 
 4. Jalankan bot:
 
@@ -70,21 +72,24 @@ Jika kamu memerlukan bantuan, jangan ragu untuk mengajukan masalah [di sini](htt
 buatlah di `cogs/nama_cog` setelah itu isi dibawah ini untuk contoh penggunan simplenya:
 
    ```python
-   import discord
-   from discord.ext import commands
+    import discord
+    from discord.ext import commands
 
-   class Example(commands.Cog):
+    class Example(commands.Cog):
        def __init__(self, bot):
            self.bot = bot
 
        @commands.command()
        async def hello(self, ctx):
            await ctx.send('Hello from Example!')
-   ```
 
-## License  
-Project ini menggunakan MIT Lisensi - untuk melihat detail lisensi [LICENSE.md](https://github.com/ZaaakW/discord.py-indonesia/blob/main/LICENSE.md)
+    async def setup(bot: commands.Bot):
+        await bot.add_cog(Example(bot))
+   ```
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ZaaakW/discord.py-indonesia&type=Date)](https://star-history.com/#ZaaakW/discord.py-indonesia&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=ZaaakW/discord.py-indonesia.git&type=Date)](https://www.star-history.com/#ZaaakW/discord.py-indonesia.git&Date)
+
+## License  
+Project ini menggunakan MIT Lisensi - untuk melihat detail lisensi [LICENSE.md](https://github.com/ZaaakW/discord.py-indonesia/blob/main/LICENSE.md)
